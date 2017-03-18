@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeFightsLevel4.cs" />
     <Compile Include="CodeFightsOneToThree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

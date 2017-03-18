@@ -1,9 +1,8 @@
-﻿using System;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace CodeFights.Tests
 {
+    [Category("Level3")]
     [TestFixture]
     public class CodeFightsOneToThreeTests
     {
@@ -13,7 +12,7 @@ namespace CodeFights.Tests
         [TestCase("Code(Cha(lle)nge)", ExpectedResult = "CodeegnlleahC")]
         [TestCase("Where are the parentheses?", ExpectedResult = "Where are the parentheses?")]
         [TestCase("abc(cba)ab(bac)c", ExpectedResult = "abcabcabcabc")]
-        public string reverseParentheses(string s)
+        public string TestreverseParentheses(string s)
         {
             var cfr = new CodeFightsOneToThree();
             return cfr.reverseParentheses(s);
@@ -50,10 +49,10 @@ namespace CodeFights.Tests
         [Test]
         public void TestmatrixElementsSum()
         {
-            int[][] testone = new int[][] {new[] {0, 1, 1, 2}, new[] {0, 5, 0, 0}, new[] {2, 0, 3, 3}};
-            var testtwo = new int[][] { new[] { 1, 1, 1, 0 }, new[] { 0, 5, 0, 1 }, new[] { 2, 1, 3, 10 } };
-            var testthree = new int[][] { new[] { 1, 1, 1 }, new[] { 2, 2, 2 }, new[] { 3, 3, 3 } };
-            var testfour = new int[][] {new[] {0}};
+            int[][] testone = {new[] {0, 1, 1, 2}, new[] {0, 5, 0, 0}, new[] {2, 0, 3, 3}};
+            var testtwo = new[] { new[] { 1, 1, 1, 0 }, new[] { 0, 5, 0, 1 }, new[] { 2, 1, 3, 10 } };
+            var testthree = new[] { new[] { 1, 1, 1 }, new[] { 2, 2, 2 }, new[] { 3, 3, 3 } };
+            var testfour = new[] {new[] {0}};
 
             var cfr = new CodeFightsOneToThree();
 
