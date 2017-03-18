@@ -6,27 +6,30 @@ using System.Threading.Tasks;
 
 namespace CodeFights
 {
-    public class CodeFights
+    public class CodeFightsOneToThree
     {
+
         public string reverseParentheses(string s)
         {
-            var startReversed = false;
-            var splits = s.Split('(', ')');
-            if (s.StartsWith("("))
-                startReversed = true;
-
-            var assembled = new List<string>();
-
-            for (var i = 0; i < splits.Length/2; i++)
+            Func<string, string> reverseMeFunc = s1 =>
             {
-                assembled.Add(splits[i] + splits[i + splits.Length / 2]);
-            }
+                var array = s1.ToCharArray();
+                Array.Reverse(array);
+                return new string(array);
+            };
 
-            foreach (var word in assembled)
+            //work right-> inside -> out
+            while (s.IndexOf("(") > -1)
             {
-                if()
+                var beginning = s.LastIndexOf("(") + 1;
+                var end = s.IndexOf(")", beginning) -1;
+                var ret = reverseMeFunc(s.Substring(beginning, end - beginning + 1));
+                s = s.Substring(0, beginning-1) + ret + s.Substring(end+2);
+
             }
+            return s;
         }
+
         public int[] sortByHeight(int[] a)
         {
             var output = new List<int>();

@@ -5,15 +5,26 @@ using NUnit.Framework;
 namespace CodeFights.Tests
 {
     [TestFixture]
-    public class CodeFightsTests
+    public class CodeFightsOneToThreeTests
     {
+        [TestCase("a(bc)de", ExpectedResult ="acbde")]
+        [TestCase("a(bcdefghijkl(mno)p)q", ExpectedResult = "apmnolkjihgfedcbq")]
+        [TestCase("co(de(fight)s)", ExpectedResult = "cosfighted")]
+        [TestCase("Code(Cha(lle)nge)", ExpectedResult = "CodeegnlleahC")]
+        [TestCase("Where are the parentheses?", ExpectedResult = "Where are the parentheses?")]
+        [TestCase("abc(cba)ab(bac)c", ExpectedResult = "abcabcabcabc")]
+        public string reverseParentheses(string s)
+        {
+            var cfr = new CodeFightsOneToThree();
+            return cfr.reverseParentheses(s);
+        }
 
         [TestCase(new[] { -1, 150, 190, 170, -1, -1, 160, 180 }, ExpectedResult = new[] {-1, 150, 160, 170, -1, -1, 180, 190 })]
         [TestCase(new[] { -1, -1, -1, -1, -1 }, ExpectedResult = new[] { -1, -1, -1, -1, -1 })]
         [TestCase(new[] { 4, 2, 9, 11, 2, 16 }, ExpectedResult = new[] { 2, 2, 4, 9, 11, 16 })]
         public int[] TestsortByHeight(int[] a)
         {
-            var cfr = new CodeFights();
+            var cfr = new CodeFightsOneToThree();
             return cfr.sortByHeight(a);
         }
 
@@ -22,7 +33,7 @@ namespace CodeFights.Tests
         [TestCase(134008, ExpectedResult = true)]
         public bool TestisLucky(int n)
         {
-            var cfr = new CodeFights();
+            var cfr = new CodeFightsOneToThree();
             return cfr.isLucky(n);
         }
 
@@ -32,7 +43,7 @@ namespace CodeFights.Tests
             var s1 = "aabcc";
             var s2 = "adcaa";
 
-            var cfr = new CodeFights();
+            var cfr = new CodeFightsOneToThree();
 
             Assert.AreEqual(3, cfr.commonCharacterCount(s1, s2));
         }
@@ -44,7 +55,7 @@ namespace CodeFights.Tests
             var testthree = new int[][] { new[] { 1, 1, 1 }, new[] { 2, 2, 2 }, new[] { 3, 3, 3 } };
             var testfour = new int[][] {new[] {0}};
 
-            var cfr = new CodeFights();
+            var cfr = new CodeFightsOneToThree();
 
             Assert.AreEqual(9, cfr.matrixElementsSum(testone));
             Assert.AreEqual(9, cfr.matrixElementsSum(testtwo));
