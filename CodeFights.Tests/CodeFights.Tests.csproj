@@ -57,6 +57,7 @@
     <Compile Include="ArcadeIntro4Tests.cs" />
     <Compile Include="ArcadeIntro5Tests.cs" />
     <Compile Include="ArcadeIntro6Tests.cs" />
+    <Compile Include="ArcadeIntro7Tests.cs" />
     <Compile Include="ArcadeIntroOneToThreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
