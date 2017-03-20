@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodeFights
 {
-    public static class CodeFightsLevel5
+    public static class ArcadeIntro5
     {
         public static int[][] minesweeper(bool[][] matrix)
         {

@@ -9,7 +9,7 @@ namespace CodeFights.Tests
 {
     [Category("Level 4")]
     [TestFixture]
-    public class CodeFightsLevel4Tests
+    public class ArcadeIntro4Tests
     {
         [TestCase("aabb", ExpectedResult = true, TestName="L4.6.1")]
         [TestCase("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc", ExpectedResult = false, TestName = "L4.6.2")]
@@ -17,7 +17,7 @@ namespace CodeFights.Tests
         [TestCase("zyyzzzzz", ExpectedResult = true, TestName = "L4.6.4")]
         public bool TestpalindromeRearranging(string inputString)
         {
-            return CodeFightsLevel4.palindromeRearranging(inputString);
+            return ArcadeIntro4.palindromeRearranging(inputString);
         }
 
         [TestCase(new[] { 1, 1, 1 }, ExpectedResult = 3, TestName = "L4.5.1")]
@@ -26,7 +26,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { 2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15 }, ExpectedResult = 13, TestName = "L4.5.4")]
         public int TestarrayChange(int[] inputArray)
         {
-            return CodeFightsLevel4.arrayChange(inputArray);
+            return ArcadeIntro4.arrayChange(inputArray);
         }
 
         [TestCase(new [] {1,2,3}, new[] {1,2,3}, ExpectedResult = true, TestName = "L4.4.1")]
@@ -37,7 +37,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { 2, 3, 1 }, new[] { 1, 3, 2 }, ExpectedResult = true, TestName = "L4.4.6")]
         public bool TestareSimilar(int[] A, int[] B)
         {
-            return CodeFightsLevel4.areSimilar(A, B);
+            return ArcadeIntro4.areSimilar(A, B);
         }
 
         [TestCase("abc,def", ExpectedResult = new [] {"*****", "*abc*", "*def*", "*****"})]
@@ -45,7 +45,7 @@ namespace CodeFights.Tests
         public string[] TestaddBorder(string picture)
         {
             var pictureArray = picture.Split(',');
-            return CodeFightsLevel4.addBorder(pictureArray);
+            return ArcadeIntro4.addBorder(pictureArray);
         }
 
 
@@ -55,7 +55,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { 80 }, ExpectedResult = new[] { 80, 0 })]
         public int[] TestAlertnatingSums(int[] a)
         {
-            return CodeFightsLevel4.alternatingSums(a);
+            return ArcadeIntro4.alternatingSums(a);
         }
 
     }

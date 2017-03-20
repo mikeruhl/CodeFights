@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeFights
 {
-    public class CodeFightsOneToThree
+    public class ArcadeIntroOneToThree
     {
 
         public string reverseParentheses(string s)
