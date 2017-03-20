@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeFights
 {
-    public static class CodeFightsLevel4
+    public static class ArcadeIntro4
     {
         /// <summary>
         /// L4.6

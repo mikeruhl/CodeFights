@@ -10,7 +10,7 @@ namespace CodeFights.Tests
 {
     [Category("Level 5")]
     [TestFixture]
-    public class CodeFightsLevel5Tests
+    public class ArcadeIntro5Tests
     {
         [Test]
         [Description("L5.6")]
@@ -33,9 +33,9 @@ namespace CodeFights.Tests
                 new[] {1, 2, 3, 1}
             };
 
-            Assert.AreEqual(CodeFightsLevel5.minesweeper(t1), e1);
-            Assert.AreEqual(CodeFightsLevel5.minesweeper(t2), e2);
-            Assert.AreEqual(CodeFightsLevel5.minesweeper(t3), e3);
+            Assert.AreEqual(ArcadeIntro5.minesweeper(t1), e1);
+            Assert.AreEqual(ArcadeIntro5.minesweeper(t2), e2);
+            Assert.AreEqual(ArcadeIntro5.minesweeper(t3), e3);
         }
         [Description("L5.5")]
         [Test]
@@ -115,11 +115,11 @@ namespace CodeFights.Tests
         
 
         #endregion
-            Assert.AreEqual(EL551, CodeFightsLevel5.boxBlur(TL551));
-            Assert.AreEqual(EL552, CodeFightsLevel5.boxBlur(TL552));
-            Assert.AreEqual(EL553, CodeFightsLevel5.boxBlur(TL553));
-            Assert.AreEqual(EL554, CodeFightsLevel5.boxBlur(TL554));
-            Assert.AreEqual(EL555, CodeFightsLevel5.boxBlur(TL555));
+            Assert.AreEqual(EL551, ArcadeIntro5.boxBlur(TL551));
+            Assert.AreEqual(EL552, ArcadeIntro5.boxBlur(TL552));
+            Assert.AreEqual(EL553, ArcadeIntro5.boxBlur(TL553));
+            Assert.AreEqual(EL554, ArcadeIntro5.boxBlur(TL554));
+            Assert.AreEqual(EL555, ArcadeIntro5.boxBlur(TL555));
         }
 
         [TestCase(new[] { 5, 3, 6, 7, 9 }, ExpectedResult = 4, Description = "L5.4.1")]
@@ -127,7 +127,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { 1, 4, 10, 6, 2 }, ExpectedResult = 7, Description = "L5.4.3")]
         public int TestavoidObstacles(int[] inputArray)
         {
-            return CodeFightsLevel5.avoidObstacles(inputArray);
+            return ArcadeIntro5.avoidObstacles(inputArray);
         }
 
         [TestCase("172.16.254.1", ExpectedResult = true, Description = "L5.3.1")]
@@ -142,7 +142,7 @@ namespace CodeFights.Tests
         [TestCase("0.1.1.256", ExpectedResult = false, Description = "L5.3.10")]
         public bool TestisIPv4Address(string inputString)
         {
-            return CodeFightsLevel5.isIPv4Address(inputString);
+            return ArcadeIntro5.isIPv4Address(inputString);
         }
 
         [Category("Level 5.2")]
@@ -151,7 +151,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { -1, 4, 10, 3, -2 }, ExpectedResult = 7, Description = "L5.2.3")]
         public int TestarrayMaximalAdjacentDifference(int[] inputArray)
         {
-            return CodeFightsLevel5.arrayMaximalAdjacentDifference(inputArray);
+            return ArcadeIntro5.arrayMaximalAdjacentDifference(inputArray);
         }
 
         [TestCase(10,15,15,10, ExpectedResult = true, Description = "L5.1.1")]
@@ -164,7 +164,7 @@ namespace CodeFights.Tests
         [TestCase(5, 5, 10, 10, ExpectedResult = false, Description = "L5.1.8")]
         public bool TestareEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight)
         {
-            return CodeFightsLevel5.areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight);
+            return ArcadeIntro5.areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight);
         }
     }
 }

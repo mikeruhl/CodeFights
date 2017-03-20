@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFightsLevel4.cs" />
-    <Compile Include="CodeFightsLevel5.cs" />
-    <Compile Include="CodeFightsOneToThree.cs" />
+    <Compile Include="ArcadeIntro6.cs" />
+    <Compile Include="ArcadeIntro4.cs" />
+    <Compile Include="ArcadeIntro5.cs" />
+    <Compile Include="ArcadeIntro7.cs" />
+    <Compile Include="ArcadeIntroOneToThree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

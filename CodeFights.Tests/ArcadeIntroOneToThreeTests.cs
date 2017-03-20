@@ -4,7 +4,7 @@ namespace CodeFights.Tests
 {
     [Category("Level3")]
     [TestFixture]
-    public class CodeFightsOneToThreeTests
+    public class ArcadeIntroOneToThreeTests
     {
         [TestCase("a(bc)de", ExpectedResult ="acbde")]
         [TestCase("a(bcdefghijkl(mno)p)q", ExpectedResult = "apmnolkjihgfedcbq")]
@@ -14,7 +14,7 @@ namespace CodeFights.Tests
         [TestCase("abc(cba)ab(bac)c", ExpectedResult = "abcabcabcabc")]
         public string TestreverseParentheses(string s)
         {
-            var cfr = new CodeFightsOneToThree();
+            var cfr = new ArcadeIntroOneToThree();
             return cfr.reverseParentheses(s);
         }
 
@@ -23,7 +23,7 @@ namespace CodeFights.Tests
         [TestCase(new[] { 4, 2, 9, 11, 2, 16 }, ExpectedResult = new[] { 2, 2, 4, 9, 11, 16 })]
         public int[] TestsortByHeight(int[] a)
         {
-            var cfr = new CodeFightsOneToThree();
+            var cfr = new ArcadeIntroOneToThree();
             return cfr.sortByHeight(a);
         }
 
@@ -32,7 +32,7 @@ namespace CodeFights.Tests
         [TestCase(134008, ExpectedResult = true)]
         public bool TestisLucky(int n)
         {
-            var cfr = new CodeFightsOneToThree();
+            var cfr = new ArcadeIntroOneToThree();
             return cfr.isLucky(n);
         }
 
@@ -42,7 +42,7 @@ namespace CodeFights.Tests
             var s1 = "aabcc";
             var s2 = "adcaa";
 
-            var cfr = new CodeFightsOneToThree();
+            var cfr = new ArcadeIntroOneToThree();
 
             Assert.AreEqual(3, cfr.commonCharacterCount(s1, s2));
         }
@@ -54,7 +54,7 @@ namespace CodeFights.Tests
             var testthree = new[] { new[] { 1, 1, 1 }, new[] { 2, 2, 2 }, new[] { 3, 3, 3 } };
             var testfour = new[] {new[] {0}};
 
-            var cfr = new CodeFightsOneToThree();
+            var cfr = new ArcadeIntroOneToThree();
 
             Assert.AreEqual(9, cfr.matrixElementsSum(testone));
             Assert.AreEqual(9, cfr.matrixElementsSum(testtwo));

@@ -54,9 +54,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CodeFightsLevel4Tests.cs" />
-    <Compile Include="CodeFightsLevel5Tests.cs" />
-    <Compile Include="CodeFightsOneToThreeTests.cs" />
+    <Compile Include="ArcadeIntro4Tests.cs" />
+    <Compile Include="ArcadeIntro5Tests.cs" />
+    <Compile Include="ArcadeIntro6Tests.cs" />
+    <Compile Include="ArcadeIntro7Tests.cs" />
+    <Compile Include="ArcadeIntroOneToThreeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
