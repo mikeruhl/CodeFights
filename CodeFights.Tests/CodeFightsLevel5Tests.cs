@@ -14,7 +14,7 @@ namespace CodeFights.Tests
     {
         [Test]
         [Description("L5.6")]
-        public void Testminsweeper()
+        public void Testminesweeper()
         {
             bool[][] t1 = { new[] { true, false, false }, new[] { false, true, false }, new[] { false, false, false } };
             int[][] e1 = { new[] { 1, 2, 1 }, new[] { 2, 1, 1 }, new[] { 1, 1, 1 } };
