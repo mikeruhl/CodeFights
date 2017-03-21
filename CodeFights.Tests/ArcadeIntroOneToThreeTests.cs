@@ -6,6 +6,25 @@ namespace CodeFights.Tests
     [TestFixture]
     public class ArcadeIntroOneToThreeTests
     {
+
+        [Test]
+        public void TestallLongestStrings()
+        {
+            var t1 = new[] {"aba", "aa", "ad", "vcd", "aba"};
+            var e1 = new[]{"aba","vcd","aba"};
+
+            var t2 = new[] {"aa"};
+            var e2 = new[] {"aa"};
+
+            var t3 = new[] {"abc", "eeee", "abcd", "dcd"};
+            var e3 = new[] {"eeee", "abcd"};
+            Assert.AreEqual(e1, ArcadeIntroOneToThree.allLongestStrings(t1));
+            Assert.AreEqual(e2, ArcadeIntroOneToThree.allLongestStrings(t2));
+            Assert.AreEqual(e3, ArcadeIntroOneToThree.allLongestStrings(t3));
+
+
+        }
+
         [TestCase("a(bc)de", ExpectedResult ="acbde")]
         [TestCase("a(bcdefghijkl(mno)p)q", ExpectedResult = "apmnolkjihgfedcbq")]
         [TestCase("co(de(fight)s)", ExpectedResult = "cosfighted")]

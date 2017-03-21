@@ -14,6 +14,7 @@ namespace CodeFights.Tests
         [TestCase("A1", "H3", ExpectedResult = false, Description = "Test Case 2")]
         [TestCase("A1", "A2", ExpectedResult = false, Description = "Test Case 3")]
         [TestCase("A1", "B2", ExpectedResult = true, Description = "Test Case 4")]
+        [TestCase("", "", ExpectedResult = false, Description = "Custom Case 1")]
         public bool TestchessBoardCellColor(string cell1, string cell2)
         {
             return ArcadeIntro6.chessBoardCellColor(cell1, cell2);

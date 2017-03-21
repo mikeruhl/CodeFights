@@ -13,6 +13,7 @@ namespace CodeFights
         {
             if (cell1.Length != 2 | cell2.Length != 2)
                 return false;
+
             var cell1c = char.ToUpper(cell1.Substring(0,1).ToCharArray()[0]) - 64;
             var cell2c = char.ToUpper(cell2.Substring(0, 1).ToCharArray()[0]) - 64;
 

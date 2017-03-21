@@ -82,7 +82,7 @@ namespace CodeFights
             return count;
         }
 
-        string[] allLongestStrings(string[] inputArray)
+        public static string[] allLongestStrings(string[] inputArray)
         {
             var maxLen = int.MinValue;
             foreach (var i in inputArray)
