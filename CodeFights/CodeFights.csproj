@@ -43,6 +43,7 @@
     <Compile Include="ArcadeIntro4.cs" />
     <Compile Include="ArcadeIntro5.cs" />
     <Compile Include="ArcadeIntro7.cs" />
+    <Compile Include="ArcadeIntro8.cs" />
     <Compile Include="ArcadeIntroOneToThree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
