@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArcadeIntro10Tests.cs" />
     <Compile Include="ArcadeIntro4Tests.cs" />
     <Compile Include="ArcadeIntro5Tests.cs" />
     <Compile Include="ArcadeIntro6Tests.cs" />

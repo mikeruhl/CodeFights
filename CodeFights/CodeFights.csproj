@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArcadeIntro10.cs" />
     <Compile Include="ArcadeIntro6.cs" />
     <Compile Include="ArcadeIntro4.cs" />
     <Compile Include="ArcadeIntro5.cs" />
