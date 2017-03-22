@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ArcadeIntro10.cs" />
     <Compile Include="ArcadeIntro11.cs" />
+    <Compile Include="ArcadeIntro12.cs" />
     <Compile Include="ArcadeIntro6.cs" />
     <Compile Include="ArcadeIntro4.cs" />
     <Compile Include="ArcadeIntro5.cs" />
