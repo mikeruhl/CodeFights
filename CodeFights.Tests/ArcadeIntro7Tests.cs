@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeFights.Tests.Common;
 using NUnit.Framework;
 
 namespace CodeFights.Tests
@@ -10,47 +11,78 @@ namespace CodeFights.Tests
     [TestFixture]
     public class ArcadeIntro7Tests
     {
-        [Description("L7.2")]
-        [Test]
-        public void TeststringsRearrangement()
-        {
-            var t1 = new[] {"aba", "bbb", "bab"};
-            var e1 = false;
-            var t2 = new[] {"ab", "bb", "aa"};
-            var e2 = true;
-            var t3 = new[] {"q", "q"};
-            var e3 = false;
-            var t4 = new[] {"zzzzab", "zzzzbb", "zzzzaa"};
-            var e4 = true;
-            var t5 = new[] {"ab", "ad", "ef", "eg"};
-            var e5 = false;
-            var t6 = new[] {"abc", "abx", "axx", "abc"};
-            var e6 = false;
-            var t7 = new[]{"abc","abx","axx","abx","abc"};
-            var e7 = true;
-            var t8 = new[]{"f","g","a","h"};
-            var e8 = true;
-            var t9 = new[] {"abc", "abd", "xxx", "xyx", "abe"};
-            var e9 = false;
-            var t10 = new[] {"abc", "bac", "bbc", "bbe", "bbd"};
-            var e10 = false;
-            var t11 = new[] {"abbabbba", "abbabbca", "abbasbba", "abbsbbba", "acbabbba"};
-            var e11 = false;
-            var t12 = new[] {"abc", "xbc", "xxc", "xbc", "aby", "ayy", "aby"};
-            var e12 = true;
 
-            Assert.AreEqual(e1, ArcadeIntro7.stringsRearrangement(t1));
-            Assert.AreEqual(e2, ArcadeIntro7.stringsRearrangement(t2));
-            Assert.AreEqual(e3, ArcadeIntro7.stringsRearrangement(t3));
-            Assert.AreEqual(e4, ArcadeIntro7.stringsRearrangement(t4));
-            Assert.AreEqual(e5, ArcadeIntro7.stringsRearrangement(t5));
-            Assert.AreEqual(e6, ArcadeIntro7.stringsRearrangement(t6));
-            Assert.AreEqual(e7, ArcadeIntro7.stringsRearrangement(t7));
-            Assert.AreEqual(e8, ArcadeIntro7.stringsRearrangement(t8));
-            Assert.AreEqual(e9, ArcadeIntro7.stringsRearrangement(t9));
-            Assert.AreEqual(e10, ArcadeIntro7.stringsRearrangement(t10));
-            Assert.AreEqual(e11, ArcadeIntro7.stringsRearrangement(t11));
-            Assert.AreEqual(e12, ArcadeIntro7.stringsRearrangement(t12));
+        #region L72 Testcases
+        private static List<ComplexTest<string[], bool>> L72 = new List<ComplexTest<string[], bool>>()
+        {
+            new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"aba", "bbb", "bab"},
+                ExpectedResult = false
+            },
+    new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"ab", "bb", "aa"},
+                ExpectedResult = true
+            },
+     new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"q", "q"},
+                ExpectedResult = false
+            },
+      new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"zzzzab", "zzzzbb", "zzzzaa"},
+                ExpectedResult = true
+            },
+       new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"ab", "ad", "ef", "eg"},
+                ExpectedResult = false
+            },
+        new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abc", "abx", "axx", "abc"},
+                ExpectedResult = false
+            },
+         new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abc","abx","axx","abx","abc"},
+                ExpectedResult = true
+            },
+          new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"f","g","a","h"},
+                ExpectedResult = true
+            },
+           new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abc", "abd", "xxx", "xyx", "abe"},
+                ExpectedResult = false
+            },
+            new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abc", "bac", "bbc", "bbe", "bbd"},
+                ExpectedResult = false
+            },
+             new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abbabbba", "abbabbca", "abbasbba", "abbsbbba", "acbabbba"},
+                ExpectedResult = false
+            },
+              new ComplexTest<string[], bool>()
+            {
+                Input =  new[] {"abc", "xbc", "xxc", "xbc", "aby", "ayy", "aby"},
+                ExpectedResult = true
+            }
+              }; 
+#endregion
+
+        [Description("L7.2")]
+        [TestCaseSource("L72")]
+        public void TeststringsRearrangement(ComplexTest<string[], bool> test)
+        {
+            Assert.AreEqual(test.ExpectedResult, ArcadeIntro7.stringsRearrangement(test.Input));
         }
 
         [TestCase(new[] { 2, 4, 7 }, ExpectedResult = 4, Description = "Test Case 1")]
