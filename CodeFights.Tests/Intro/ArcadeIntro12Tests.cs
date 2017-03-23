@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using CodeFights.Intro;
 using CodeFights.Tests.Common;
 using NUnit.Framework;
 
-namespace CodeFights.Tests
+namespace CodeFights.Tests.Intro
 {
 
 

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CodeFights;
+﻿using System.Collections.Generic;
+using CodeFights.Intro;
 using CodeFights.Tests.Common;
 using NUnit.Framework;
 
-namespace CodeFights.Tests
+namespace CodeFights.Tests.Intro
 {
     [Category("Level 5")]
     [TestFixture]

@@ -1,6 +1,7 @@
-﻿using NUnit.Framework;
+﻿using CodeFights.Intro;
+using NUnit.Framework;
 
-namespace CodeFights.Tests
+namespace CodeFights.Tests.Intro
 {
     [Category("Level3")]
     [TestFixture]

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CodeFights.Intro;
 using NUnit.Framework;
 
-namespace CodeFights.Tests
+namespace CodeFights.Tests.Intro
 {
     [TestFixture]
     public class ArcadeIntro6Tests

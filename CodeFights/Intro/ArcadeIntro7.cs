@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CodeFights
+namespace CodeFights.Intro
 {
     public static class ArcadeIntro7
     {

@@ -54,18 +54,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ArcadeIntro10Tests.cs" />
-    <Compile Include="ArcadeIntro11Tests.cs" />
-    <Compile Include="ArcadeIntro12Tests.cs" />
-    <Compile Include="ArcadeIntro4Tests.cs" />
-    <Compile Include="ArcadeIntro5Tests.cs" />
-    <Compile Include="ArcadeIntro6Tests.cs" />
-    <Compile Include="ArcadeIntro7Tests.cs" />
-    <Compile Include="ArcadeIntro8Tests.cs" />
-    <Compile Include="ArcadeIntro9Tests.cs" />
-    <Compile Include="ArcadeIntroOneToThreeTests.cs" />
+    <Compile Include="Intro\ArcadeIntro10Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro11Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro12Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro4Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro5Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro6Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro7Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro8Tests.cs" />
+    <Compile Include="Intro\ArcadeIntro9Tests.cs" />
+    <Compile Include="Intro\ArcadeIntroOneToThreeTests.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TheCore\IntroGatesTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
