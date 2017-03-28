@@ -51,6 +51,7 @@
     <Compile Include="Intro\ArcadeIntroOneToThree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheCore\AtTheCrossroads.cs" />
+    <Compile Include="TheCore\CornerOfZeroAndOne.cs" />
     <Compile Include="TheCore\IntroGates.cs" />
   </ItemGroup>
   <ItemGroup />
