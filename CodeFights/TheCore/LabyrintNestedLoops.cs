@@ -88,7 +88,7 @@ namespace CodeFights.TheCore
                             if (topLeft.Count == 0)
                                 continue;
 
-                            Debug.WriteLine("Currently there are {0} possibilities", (topLeft.Count * topRight.Count * bottomRight.Count * bottomLeft.Count));
+                            Debug.WriteLine("Currently there are {0} possibilities", (topLeft.Count * topRight.Count * bottomRight.Count * bottomLeft.Count -3));
                             foreach (var tl in topLeft)
                             {
                                 foreach (var tr in topRight)
@@ -97,11 +97,16 @@ namespace CodeFights.TheCore
                                     {
                                         foreach (var bl in bottomLeft)
                                         {
-                                            if (xOffset - topWord.Length + tl[0] == xOffset - bottomWord.Length + bl[0] &&
-                                                xOffset - topWord.Length + tr[0] == xOffset - bottomWord.Length + br[0] &&
-                                                yOffset - leftWord.Length + tl[1] == yOffset - rightWord.Length + tr[1] &&
-                                                yOffset - leftWord.Length + bl[1] == yOffset - rightWord.Length + br[1]
+                                            if(bl[0] - tl[0] == br[0] - tr[0] &&
+                                                tr[0] - tl[0] == br[0] - bl[0] &&
+                                                br[1] - tr[1] == bl[1] - tl[1] &&
+                                                tr[1] - tl[1] == br[1] - bl[1]
                                                 && tl[0] < tr[0] && tl[1] < bl[1])
+                                            //if (xOffset - topWord.Length + tl[0] == xOffset - bottomWord.Length + bl[0] &&
+                                            //    xOffset - topWord.Length + tr[0] == xOffset - bottomWord.Length + br[0] &&
+                                            //    yOffset - leftWord.Length + tl[1] == yOffset - rightWord.Length + tr[1] &&
+                                            //    yOffset - leftWord.Length + bl[1] == yOffset - rightWord.Length + br[1]
+                                            //    && tl[0] < tr[0] && tl[1] < bl[1])
                                                 success++;
                                         }
                                     }
