@@ -53,6 +53,7 @@
     <Compile Include="TheCore\AtTheCrossroads.cs" />
     <Compile Include="TheCore\CornerOfZeroAndOne.cs" />
     <Compile Include="TheCore\IntroGates.cs" />
+    <Compile Include="TheCore\LabyrintNestedLoops.cs" />
     <Compile Include="TheCore\ListForestEdge.cs" />
     <Compile Include="TheCore\LoopTunnel.cs" />
   </ItemGroup>
