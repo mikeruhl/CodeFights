@@ -45,7 +45,7 @@ namespace CodeFights.Tests.TheCore
         #endregion
         [Description("Labyrinth8")]
         [TestCaseSource("Labyrinth8")]
-        public void TestcrosswordFormation(ComplexTest<string[], int> test)
+        public void TestcrosswordFormation2(ComplexTest<string[], int> test)
         {
             Assert.AreEqual(test.ExpectedResult, LabyrintNestedLoops.crosswordFormation(test.Input));
         }

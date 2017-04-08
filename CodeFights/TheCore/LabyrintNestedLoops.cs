@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.SymbolStore;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -15,115 +16,71 @@ namespace CodeFights.TheCore
         public static int crosswordFormation(string[] words)
         {
             var success = 0;
-            //    x
-            // a    b
-            //    y
-            for (var x = 0; x < 4; x++)
+
+            for (var i1 = 0; i1 < 4; i1++)
             {
-                for (var y = 0; y < 4; y++)
+                var topWord = words[i1];
+                for(var t1 = 0; t1 < topWord.Length; t1++)
                 {
-                    for (var a = 0; a < 4; a++)
+                    for (var i2 = 0; i2 < 4; i2++)
                     {
-                        for (var b = 0; b < 4; b++)
+                        if (i1 == i2)
+                            continue;
+                        var leftWord = words[i2];
+                        for (var l1 = 0; l1 < leftWord.Length-2; l1++)
                         {
-                            if (a == b | a == x | a == y |
-                                b == x | b == y |
-                                x == y)
+                            if (topWord[t1] != leftWord[l1])
                                 continue;
-
-                            var topWord = words[x];
-                            var bottomWord = words[y];
-                            var leftWord = words[a];
-                            var rightWord = words[b];
-
-                            var yOffset = new[] {leftWord.Length, rightWord.Length}.Max();
-                            var xOffset = new[] {topWord.Length, bottomWord.Length}.Max();
-
-                            var topRight = new List<int[]>();
-                            for (var c1 = 0; c1 < topWord.Length; c1++)
+                            //found one match for left word, now let's find the other.
+                            for (var l2 = l1 + 2; l2 < leftWord.Length; l2++)
                             {
-                                for (var c2 = 0; c2 < rightWord.Length; c2++)
+                                for (var i3 = 0; i3 < 4; i3++)
                                 {
-                                    if (topWord[c1] == rightWord[c2])
-                                        topRight.Add(new[] { c1, c2 });
-                                }
-                            }
-                            if (topRight.Count == 0)
-                                continue;
+                                    if (i3 == i1 | i3 == i2)
+                                        continue;
 
-                            var bottomRight = new List<int[]>();
-                            for (var c1 = 0; c1 < bottomWord.Length; c1++)
-                            {
-                                for (var c2 = 0; c2 < rightWord.Length; c2++)
-                                {
-                                    if (bottomWord[c1] == rightWord[c2])
-                                        bottomRight.Add(new[] { c1, c2 });
-                                }
-                            }
-                            if (bottomRight.Count == 0)
-                                continue;
-
-
-                            var bottomLeft = new List<int[]>();
-                            for (var c1 = 0; c1 < bottomWord.Length; c1++)
-                            {
-                                for (var c2 = 0; c2 < leftWord.Length; c2++)
-                                {
-                                    if (bottomWord[c1] == leftWord[c2])
-                                        bottomLeft.Add(new[] { c1, c2 });
-                                }
-                            }
-                            if (bottomLeft.Count == 0)
-                                continue;
-
-                            var topLeft = new List<int[]>();
-                            for (var c1 = 0; c1 < topWord.Length; c1++)
-                            {
-                                for (var c2 = 0; c2 < leftWord.Length; c2++)
-                                {
-                                    if (topWord[c1] == leftWord[c2])
-                                        topLeft.Add(new[] { c1, c2 });
-                                }
-                            }
-                            if (topLeft.Count == 0)
-                                continue;
-
-                            Debug.WriteLine("Currently there are {0} possibilities", (topLeft.Count * topRight.Count * bottomRight.Count * bottomLeft.Count -3));
-                            foreach (var tl in topLeft)
-                            {
-                                foreach (var tr in topRight)
-                                {
-                                    foreach (var br in bottomRight)
+                                    var bottomWord = words[i3];
+                                    var rightWord = words[6 - i1 - i2 - i3];
+                                    if (l2 - l1 >= rightWord.Length)
+                                        continue;
+                                    for(var b1 = 0; b1 < bottomWord.Length-2; b1++)
                                     {
-                                        foreach (var bl in bottomLeft)
+                                        if (leftWord[l2] != bottomWord[b1])
+                                            continue;
+
+                                        for(var b2 = b1+2; b2 < bottomWord.Length; b2++)
                                         {
-                                            if(bl[0] - tl[0] == br[0] - tr[0] &&
-                                                tr[0] - tl[0] == br[0] - bl[0] &&
-                                                br[1] - tr[1] == bl[1] - tl[1] &&
-                                                tr[1] - tl[1] == br[1] - bl[1]
-                                                && tl[0] < tr[0] && tl[1] < bl[1])
-                                            //if (xOffset - topWord.Length + tl[0] == xOffset - bottomWord.Length + bl[0] &&
-                                            //    xOffset - topWord.Length + tr[0] == xOffset - bottomWord.Length + br[0] &&
-                                            //    yOffset - leftWord.Length + tl[1] == yOffset - rightWord.Length + tr[1] &&
-                                            //    yOffset - leftWord.Length + bl[1] == yOffset - rightWord.Length + br[1]
-                                            //    && tl[0] < tr[0] && tl[1] < bl[1])
+                                            var t2 = t1 + b2 - b1;
+                                            if (t2 >= topWord.Length)
+                                                continue;
+
+                                            for(var r1 = 0; r1 < rightWord.Length; r1++)
+                                            {
+                                                if (topWord[t2] != rightWord[r1])
+                                                    continue;
+                                                var r2 = r1 + l2 - l1;
+                                                if (r2 >= rightWord.Length)
+                                                    continue;
+                                                if (bottomWord[b2] != rightWord[r2])
+                                                    continue;
+
                                                 success++;
+                                            }
                                         }
                                     }
+
                                 }
                             }
 
-
-
-
                         }
+
                     }
                 }
-
             }
+
             return success;
         }
-
+        
         public static int rectangleRotation(int a, int b)
         {
             var ret = 0;
