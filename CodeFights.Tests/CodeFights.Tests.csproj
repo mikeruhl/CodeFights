@@ -67,6 +67,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TheCore\AtTheCrossroadsTests.cs" />
+    <Compile Include="TheCore\BookMarketTests.cs" />
     <Compile Include="TheCore\CornerOfZeroAndOneTests.cs" />
     <Compile Include="TheCore\IntroGatesTests.cs" />
     <Compile Include="TheCore\LabyrintNestedLoopsTests.cs" />
