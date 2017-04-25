@@ -56,6 +56,7 @@
     <Compile Include="TheCore\IntroGates.cs" />
     <Compile Include="TheCore\LabOfTransformations.cs" />
     <Compile Include="TheCore\LabyrintNestedLoops.cs" />
+    <Compile Include="TheCore\ListBackwoods.cs" />
     <Compile Include="TheCore\ListForestEdge.cs" />
     <Compile Include="TheCore\LoopTunnel.cs" />
     <Compile Include="TheCore\MirrorLake.cs" />

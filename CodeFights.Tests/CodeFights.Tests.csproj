@@ -72,6 +72,7 @@
     <Compile Include="TheCore\IntroGatesTests.cs" />
     <Compile Include="TheCore\LabOfTransformationsTests.cs" />
     <Compile Include="TheCore\LabyrintNestedLoopsTests.cs" />
+    <Compile Include="TheCore\ListBackwoodsTests.cs" />
     <Compile Include="TheCore\ListForestEdgeTests.cs" />
     <Compile Include="TheCore\LoopTunnelTests.cs" />
     <Compile Include="TheCore\MirrorLakeTests.cs" />
