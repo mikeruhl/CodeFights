@@ -61,6 +61,7 @@
     <Compile Include="TheCore\LoopTunnel.cs" />
     <Compile Include="TheCore\MirrorLake.cs" />
     <Compile Include="TheCore\SpringOfIntegration.cs" />
+    <Compile Include="TheCore\WaterfallOfIntegration.cs" />
     <Compile Include="TheCore\WellOfIntegration.cs" />
   </ItemGroup>
   <ItemGroup />

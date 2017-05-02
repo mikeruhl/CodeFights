@@ -49,26 +49,7 @@ namespace CodeFights.TheCore
                         newStar[newY][newX] = matrix[oldY][oldX];
                 }
             }
-            Debug.WriteLine($"Width: {width} Center: {center[0]},{center[1]}, Rotations: {t}");
-            Debug.WriteLine("Before:");
-            foreach (var m in matrix)
-            {
-                foreach (var n in m)
-                {
-                    Debug.Write(n + ", ");
-                }
-                Debug.Write(Environment.NewLine);
-            }
-
-            Debug.WriteLine("After:");
-            foreach (var m in newStar)
-            {
-                foreach (var n in m)
-                {
-                    Debug.Write(n + ", ");
-                }
-                Debug.Write(Environment.NewLine);
-            }
+            
             return newStar;
         }
 
