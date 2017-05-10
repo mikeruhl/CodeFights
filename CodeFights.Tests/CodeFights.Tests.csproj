@@ -76,6 +76,7 @@
     <Compile Include="TheCore\ListForestEdgeTests.cs" />
     <Compile Include="TheCore\LoopTunnelTests.cs" />
     <Compile Include="TheCore\MirrorLakeTests.cs" />
+    <Compile Include="TheCore\SortingOutpostTests.cs" />
     <Compile Include="TheCore\SpringOfIntegrationTests.cs" />
     <Compile Include="TheCore\WaterfallOfIntegrationTests.cs" />
     <Compile Include="TheCore\WellOfIntegrationTests.cs" />
