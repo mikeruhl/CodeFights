@@ -10,6 +10,34 @@ namespace CodeFights.TheCore
     public static class TimeRiver
     {
 
+        public static int newYearCelebrations(string takeOffTime, int[] minutes)
+        {
+            var isNewYearsEve = false;
+            var newYears = 1;
+            var timely = takeOffTime.Split(':').Select(s=>int.Parse(s)).ToArray();
+            if(timely[0] >= 4 && timely[1] >= 41)
+            {
+                isNewYearsEve = true;
+            }
+            for( var i = 0; i < minutes.Length; i++)
+            {
+               
+            }
+            return newYears;
+        }
+
+        public static string curiousClock(string someTime, string leavingTime)
+        {
+            var sT = DateTime.Parse(someTime);
+            var lT = DateTime.Parse(leavingTime);
+
+            var span = lT.Subtract(sT);
+            var reallyLeave = sT.Subtract(span);
+
+            return reallyLeave.ToString("yyyy-MM-dd HH:mm");
+
+        }
+
         public static int dayOfWeek(string birthdayDate)
         {
             var date = DateTime.Parse(birthdayDate);
