@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -10,19 +11,87 @@ namespace CodeFights.TheCore
     public static class TimeRiver
     {
 
+        public static int holiday(int x, string weekDay, string month, int yearNumber)
+        {
+
+            var months = new[]
+            {
+                "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+                "November", "December"
+            };
+            var mi = Array.IndexOf(months, month) + 1;
+
+            var weekDays = new[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+            var wd = Array.IndexOf(weekDays, weekDay);
+
+            var dat = new DateTime(yearNumber, mi , 1);
+
+
+            while ((int)dat.DayOfWeek != wd)
+            {
+                dat = dat.AddDays(1);
+            }
+            for(var y = 1; y < x; y ++)
+            dat = dat.AddDays(7);     
+            
+            if (dat.Month != mi)
+                return -1;
+
+            return dat.Day;
+
+        }
+
+
+        public static int missedClasses(int year, int[] daysOfTheWeek, string[] holidays)
+        {
+            var dates =
+                holidays.Select(h => h.Split('-'))
+                    .Select(i => new DateTime(int.Parse(i[0]) > 5 ? year : year + 1, int.Parse(i[0]), int.Parse(i[1])))
+                    .ToArray();
+
+            return dates.Count(t => daysOfTheWeek.Select(z=>z == 7 ? 0 : z).Any(f => f == (int) t.DayOfWeek));
+
+        }
+
+
+        public static string regularMonths(string currMonth)
+        {
+            var splits = currMonth.Split('-');
+
+            var dat = new DateTime(int.Parse(splits[1]), int.Parse(splits[0]), 1);
+            dat = dat.AddMonths(1);
+            while (dat.DayOfWeek != DayOfWeek.Monday)
+                dat = dat.AddMonths(1);
+
+            return dat.ToString("MM-yyyy");
+
+        }
+
         public static int newYearCelebrations(string takeOffTime, int[] minutes)
         {
-            var isNewYearsEve = false;
-            var newYears = 1;
+            var tally = 0;
+            var newYears = 0;
+            var newYearsDay = new DateTime(DateTime.Now.Year, 1, 1, 0, 0, 0);
             var timely = takeOffTime.Split(':').Select(s=>int.Parse(s)).ToArray();
-            if(timely[0] >= 4 && timely[1] >= 41)
+            var currentTime = new DateTime(DateTime.Now.Year - 1, 12, 31, timely[0], timely[1], 0);
+            if(currentTime.Hour <= 4)
             {
-                isNewYearsEve = true;
+                if(currentTime.Hour == 4 && currentTime.Minute <=40)
+                    currentTime = currentTime.AddDays(1);
+                else if (currentTime.Hour != 4)
+                    currentTime = currentTime.AddDays(1);
             }
             for( var i = 0; i < minutes.Length; i++)
             {
-               
+                if (currentTime <= newYearsDay && currentTime.AddMinutes(minutes[i] - tally) >= newYearsDay)
+                    newYears++;
+                currentTime = currentTime.AddMinutes(minutes[i] - tally);
+                currentTime = currentTime.AddHours(-1);
+                tally = minutes[i];
             }
+            if (currentTime <= newYearsDay)
+                newYears++;
+
             return newYears;
         }
 
