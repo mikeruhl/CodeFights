@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CodeFights.Tests.Common;
 using CodeFights.TheCore;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
@@ -13,6 +14,119 @@ namespace CodeFights.Tests.TheCore
     [TestFixture()]
     public class RegularHellTests
     {
+        [TestCase("Roll d6-3 and 4d4+3 to pick a weapon, and finish the boss with 3d7!", ExpectedResult = 43, Description ="RH.09.01")]
+        [TestCase("d6-almost 01d4+2 12d01-3 5d5-00 a valid formula", ExpectedResult = 46, Description = "RH.09.02")]
+        [TestCase("meh4d2-3D3", ExpectedResult = 5, Description = "RH.09.03")]
+        [TestCase("ad3+4, 44b-6, 5daa", ExpectedResult = 7, Description = "RH.09.04")]
+        [TestCase("4d6-L1d20-10 did4n't expect that", ExpectedResult = 38, Description = "RH.09.05")]
+        [TestCase("nothing here", ExpectedResult = 0, Description = "RH.09.06")]
+        public int TestbugsAndBugfixes(string rules)
+        {
+            return RegularHell.bugsAndBugfixes(rules);
+        }
+
+
+        [TestCase("Hi, hi Jane! I'm so. So glad to to finally be able to write - WRITE!! - to you!", ExpectedResult=4, Description = "RH.08.01")]
+        [TestCase("Yo-yo, how's s it going going for ya? Ya is okay, okay'nt ya?", ExpectedResult = 5, Description = "RH.08.02")]
+        [TestCase("Hi Jane, how are you doing today?", ExpectedResult = 0, Description = "RH.08.03")]
+        [TestCase("My friend, friend of mine, I am really-really happy for you! You are amazing, please write me back when you can.", ExpectedResult = 3, Description = "RH.08.04")]
+        [TestCase("Everything is fine, fine perfectly here. Here I have fun (fun all the day!) days. Although I miss you, so please please, Jane, write, write me whenever you can! Can you do that? That is the only (!!ONLY!!) thing I ask from you, you sunshine.", ExpectedResult = 9, Description = "RH.08.05")]
+        [TestCase("Do not notify me about this in the future", ExpectedResult = 0, Description = "RH.08.06")]
+        [TestCase("ho-ho--he-he", ExpectedResult = 2, Description = "RH.08.07")]
+        [TestCase("WeLl wElL", ExpectedResult = 1, Description = "RH.08.08")]
+        public int TestrepetitionEncryption(string letter)
+        {
+            return RegularHell.repetitionEncryption(letter);
+        }
+
+
+        #region RH07
+        private static List<ComplexTest<object[], string>> RH07 = new List<ComplexTest<object[], string>>
+        {
+            new ComplexTest<object[], string> //1
+            {
+                Input = new object[]
+                {
+                    "function add($n, m) {\t  return n + $m;\t}",
+                    new [] {"n", "m"}
+                },
+                ExpectedResult = "function add($n, $m) {\t  return $n + $m;\t}"
+
+            },
+            new ComplexTest<object[], string> //2
+            {
+                Input = new object[]
+                {
+                    "function findSum(a, $cnt) {\t  var a0 = $a;\t  for (var _cnt = 0, _cnt < cnt; _cnt++)\t    a0 += _cnt;\t  return a0;\t}",
+                    new [] {"a", "cnt"}
+                },
+                ExpectedResult = "function findSum($a, $cnt) {\t  var a0 = $a;\t  for (var _cnt = 0, _cnt < $cnt; _cnt++)\t    a0 += _cnt;\t  return a0;\t}"
+
+            },
+            new ComplexTest<object[], string> //3
+            {
+                Input = new object[]
+                {
+                    "function doNothing($uselessVariable) {\t  return $uselessVariable;\t}",
+                    new [] { "uselessVariable" }
+                },
+                ExpectedResult = "function doNothing($uselessVariable) {\t  return $uselessVariable;\t}"
+
+            },
+            new ComplexTest<object[], string> //4
+            {
+                Input = new object[]
+                {
+                    "function addToVariable(variable) {\t  variable_which_should_be_increased_by_the_variable = 14;\t  variable_which_should_be_increased_by_the_variable += variable;\t  return variable_which_should_be_increased_by_the_variable;\t}",
+                    new [] { "variable" }
+                },
+                ExpectedResult = "function addToVariable($variable) {\t  variable_which_should_be_increased_by_the_variable = 14;\t  variable_which_should_be_increased_by_the_variable += $variable;\t  return variable_which_should_be_increased_by_the_variable;\t}"
+
+            },
+            new ComplexTest<object[], string> //5
+            {
+                Input = new object[]
+                {
+                    "function replaceThemAll(rep, laceT, hemAll, ornot) {\t  var tmp = rep;\t  rep = laceT;\t  laceT = hemAll;\t  hemAll = tmp;\t  return [rep, laceT, hemAll]\t}",
+                    new [] {"rep",
+ "laceT",
+ "hemAll"}
+                },
+                ExpectedResult = "function replaceThemAll($rep, $laceT, $hemAll, ornot) {\t  var tmp = $rep;\t  $rep = $laceT;\t  $laceT = $hemAll;\t  $hemAll = tmp;\t  return [$rep, $laceT, $hemAll]\t}"
+
+            },
+            new ComplexTest<object[], string> //6
+            {
+                Input = new object[]
+                {
+                    "function returnSecond(fu_,_re5,NOO) {\t  return _re5;\t}",
+                    new [] {"fu_",
+ "_re5",
+ "NOO"}
+                },
+                ExpectedResult = "function returnSecond($fu_,$_re5,$NOO) {\t  return $_re5;\t}"
+
+            },
+            new ComplexTest<object[], string> //7
+            {
+                Input = new object[]
+                {
+                    "function getLength(k, m) {\t  return m.length;\t}",
+                    new [] {"m"}
+                },
+                ExpectedResult = "function getLength(k, $m) {\t  return $m.length;\t}"
+
+            },
+
+        };
+        #endregion
+        [TestCaseSource("RH07")]
+        public void TestprogramTranslation(ComplexTest<object[], string> test)
+        {
+            Assert.AreEqual(test.ExpectedResult, RegularHell.programTranslation((string)test.Input[0], (string[])test.Input[1]));
+
+        }
+
         [TestCase("cough\tbough", ExpectedResult = true, Description = "RegularHell.06.01")]
         [TestCase("CodeFig!ht\tWith all your might", ExpectedResult = false, Description = "RegularHell.06.02")]
         [TestCase("quod erat demonstrandum\tand that, ladies and gentlemen, is the end of my memorandum", ExpectedResult = true, Description = "RegularHell.06.03")]

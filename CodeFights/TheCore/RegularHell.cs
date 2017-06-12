@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,54 @@ namespace CodeFights.TheCore
 {
     public static class RegularHell
     {
+
+        public static int bugsAndBugfixes(string rules)
+        {
+            Regex regex = new Regex("([0-9]+)*d([0-9]+)([\\+|-][0-9]+)*");
+            MatchCollection formulas = regex.Matches(rules);
+
+            int res = 0;
+            foreach (Match match in formulas)
+            {
+                GroupCollection formula = match.Groups;
+                int rolls = String.IsNullOrEmpty(formula[1].Value.Trim()) ?
+                  1 : Int32.Parse(formula[1].Value);
+                int dieType = Int32.Parse(formula[2].Value);
+                int formulaMax = rolls * dieType;
+
+                if (!String.IsNullOrEmpty(formula[3].Value))
+                {
+                    if (formula[3].Value[0] == '-')
+                    {
+                        formulaMax -= Int32.Parse(formula[3].Value.Substring(1));
+                    }
+                    else
+                    {
+                        formulaMax += Int32.Parse(formula[3].Value.Substring(1));
+                    }
+                }
+
+                res += formulaMax;
+            }
+
+            return res;
+        }
+
+
+        public static int repetitionEncryption(string letter)
+        {
+            Regex regex = new Regex("[^a-zA-Z]?([a-zA-Z]+)[^a-zA-Z]+\\1([^a-zA-Z]+|$)", RegexOptions.IgnoreCase);
+            return regex.Matches(letter).Count;
+        }
+
+
+        public static string programTranslation(string solution, string[] args)
+        {
+            string argumentVariants = String.Join("|", args);
+            string pattern = "\\$?\\b("+argumentVariants+")\\b";
+            string sub = "$$$1";
+            return Regex.Replace(solution, pattern, sub);
+        }
 
         public static bool eyeRhyme(string pairOfLines)
         {
