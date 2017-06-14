@@ -62,6 +62,7 @@
     <Compile Include="TheCore\LoopTunnel.cs" />
     <Compile Include="TheCore\MirrorLake.cs" />
     <Compile Include="TheCore\RegularHell.cs" />
+    <Compile Include="TheCore\SecretArchives.cs" />
     <Compile Include="TheCore\SortingOutpost.cs" />
     <Compile Include="TheCore\SpringOfIntegration.cs" />
     <Compile Include="TheCore\TimeRiver.cs" />
