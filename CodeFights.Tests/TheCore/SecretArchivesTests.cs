@@ -391,7 +391,7 @@ namespace CodeFights.Tests.TheCore
         [TestCaseSource("SA01")]
         public void Testlrc2subRip(ComplexTest<object[], string[]> test)
         {
-            Assert.AreEqual(test.ExpectedResult, SecretArchives.lrc2subRip((string[])test.Input[0], (string)test.Input[1]);
+            Assert.AreEqual(test.ExpectedResult, SecretArchives.lrc2subRip((string[])test.Input[0], (string)test.Input[1]));
         }
 
     }
