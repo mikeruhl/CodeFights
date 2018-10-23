@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CodeFights.TheCore
 {
-    public static class SecretArchives
+    public class SecretArchives
     {
         public static string[] lrc2subRip(string[] lrcLyrics, string songLength)
         {
@@ -55,5 +56,35 @@ namespace CodeFights.TheCore
 
             return output.ToArray();
         }
+
+        public static string htmlTable(string table, int row, int column)
+        {
+            table = table.Substring(7, table.Length - 15);
+            if (table.Substring(0, 4) == "<th>")
+            {
+                table = table.Substring(0, table.IndexOf("</th>") + 4);
+            }
+
+            var rowLoc = 0;
+            for (var r = 0; r < row; r++)
+            {
+                rowLoc = table.IndexOf("<tr>", rowLoc+9);
+                if (rowLoc == -1)
+                    return "No such cell";
+            }
+
+            var rowContents = table.Substring(rowLoc + 4, table.IndexOf("</tr>", rowLoc) - 4 - rowLoc);
+
+            var colLoc = 0;
+            for (var c = 0; c < column; c++)
+            {
+                colLoc = rowContents.IndexOf("<td>", colLoc+9);
+                if (colLoc == -1)
+                    return "No such cell";
+            }
+
+            return rowContents.Substring(colLoc+4, rowContents.IndexOf("</td>", colLoc+1)-colLoc-4);
+        }
+
     }
 }
