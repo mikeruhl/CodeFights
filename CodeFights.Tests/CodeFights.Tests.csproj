@@ -78,6 +78,7 @@
     <Compile Include="TheCore\LoopTunnelTests.cs" />
     <Compile Include="TheCore\MirrorLakeTests.cs" />
     <Compile Include="TheCore\RegularHellTests.cs" />
+    <Compile Include="TheCore\SecretArchivesTests.cs" />
     <Compile Include="TheCore\SortingOutpostTests.cs" />
     <Compile Include="TheCore\SpringOfIntegrationTests.cs" />
     <Compile Include="TheCore\TimeRiverTests.cs" />
