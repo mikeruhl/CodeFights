@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterviewPrep\InterviewPrep.cs" />
+    <Compile Include="InterviewPrep\Tree.cs" />
     <Compile Include="Intro\ArcadeIntro10.cs" />
     <Compile Include="Intro\ArcadeIntro11.cs" />
     <Compile Include="Intro\ArcadeIntro12.cs" />
