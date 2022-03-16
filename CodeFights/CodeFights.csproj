@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterviewPrep\FindProfession.cs" />
     <Compile Include="InterviewPrep\InterviewPrep.cs" />
     <Compile Include="InterviewPrep\Tree.cs" />
     <Compile Include="Intro\ArcadeIntro10.cs" />
